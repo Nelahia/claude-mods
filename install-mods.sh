@@ -18,14 +18,12 @@ done
 MARKETPLACES=(
   "claude-kit|johnnyvizz/claude-kit"
   "hellosverre-mods|hellosverre/claude-skins"
-  "claude-code-filetree|data-goblin/claude-code-filetree"
   "claude-code-mods|karanb192/claude-code-mods"
 )
 # "plugin|clé=valeur;clé=valeur" : options userConfig (défauts des auteurs, fixés explicitement)
 PLUGINS=(
   "savvy-progress@claude-kit|language=auto"
   "skins@hellosverre-mods|"
-  "filetree@claude-code-filetree|activity=reads and writes;glyphs=auto;follow=on;column=date"
   "cache-tax@claude-code-mods|"
 )
 

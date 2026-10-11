@@ -23,8 +23,6 @@ bash ~/claude-mods/install-mods.sh
 
 - **macOS / Linux** : lancer ces commandes dans le Terminal.
 - **Windows** : lancer ces commandes dans **Git Bash**, pas dans PowerShell.
-- Le dépôt est privé : il faut être connecté à GitHub (`gh auth login`) ou utiliser
-  `gh repo clone Nelahia/claude-mods ~/claude-mods`.
 
 Ensuite, **redémarre Claude Code**, ou tape `/reload-plugins` dans une session ouverte.
 
@@ -52,7 +50,6 @@ déjà en place.
 | --- | --- | --- |
 | **[skins](https://github.com/hellosverre/claude-skins)** | Refonte visuelle complète : lignes d'outils avec icônes, cartes de diff, tableaux, Mermaid, maths et shell, code coloré, repliage, 15 thèmes. | `/skin` (réglages avec aperçu), `/skin <thème>`, `/skin list`, `/skin off` |
 | **[savvy-progress](https://github.com/JohnnyVizz/claude-kit/tree/main/plugins/savvy-progress)** | Barre de progression au-dessus du prompt et panneau des sous-agents en direct : modèle, tâches, contexte, coût estimé, durée. | `/agents-info` |
-| **[filetree](https://github.com/data-goblin/claude-code-filetree)** | Arborescence façon IDE dans la barre latérale droite : statut git (+N/-N), branche, et fichiers qui brillent quand Claude les lit (violet), les écrit (orange) ou les commit (vert). | `/filetree [chemin]` |
 | **[cache-tax](https://github.com/karanb192/cache-tax)** | Garde le cache de prompt « chaud » pendant les pauses et bloque une fois un envoi sur un cache froid, en affichant le coût estimé. | `/keepwarm [90m\|always\|status\|off]`, `/cache-tax` |
 
 ## Configuration appliquée
@@ -62,9 +59,6 @@ Les options sont modifiables à tout moment via `/config` ou `/plugin configure 
 - **skins** : thème `tokyo-night`. Le choix est enregistré par machine et vaut pour tous les dossiers,
   sauf ceux où tu as tapé `/skin pin` (`/skin unpin` les ramène au thème par défaut).
 - **savvy-progress** : `language=auto`, la langue suit celle de Claude Code.
-- **filetree** : `activity=reads and writes`, `glyphs=auto`, `follow=on`, `column=date`. L'option
-  `open` est vide : un double-clic ouvre le fichier dans l'app par défaut. `preview` affiche un aperçu
-  dans le panneau, et `code -g {path}` ouvre le fichier dans VS Code.
 - **cache-tax** : réglages d'origine. `/cache-tax guard warn` affiche seulement un avertissement au
   lieu de bloquer l'envoi.
 
@@ -75,9 +69,7 @@ Les options sont modifiables à tout moment via `/config` ou `/plugin configure 
   message pour qu'il passe. Chaque ping de `/keepwarm` (toutes les 50 min) consomme des tokens. Le
   maintien au chaud suppose un cache d'une heure. C'est le défaut en abonnement ; avec une clé API, il
   faut `"promptCacheTtl": "1h"`.
-- **filetree dans le terminal** demande le layout plein écran (`/tui fullscreen`) et au moins 110
-  colonnes. Dans l'app Desktop, il apparaît tout seul. Les mods ne chargent pas dans les sessions WSL
-  de l'app Desktop.
+- Les mods ne chargent pas dans les sessions WSL de l'app Desktop.
 - **Barre au-dessus du prompt partagée** : savvy-progress et cache-tax y dessinent tous les deux. Si les
   deux veulent s'afficher en même temps, un seul gagne.
 - **API en early access** : une mise à jour de Claude Code peut casser un mod. `claude plugin list`
@@ -92,8 +84,7 @@ Les options sont modifiables à tout moment via `/config` ou `/plugin configure 
 claude plugin uninstall skins@hellosverre-mods
 ```
 
-Même commande pour `savvy-progress@claude-kit`, `filetree@claude-code-filetree` et
-`cache-tax@claude-code-mods`. `claude plugin marketplace remove <nom>` retire une marketplace.
+Même commande pour `savvy-progress@claude-kit` et `cache-tax@claude-code-mods`. `claude plugin marketplace remove <nom>` retire une marketplace.
 
 ## Ajouter un mod
 
